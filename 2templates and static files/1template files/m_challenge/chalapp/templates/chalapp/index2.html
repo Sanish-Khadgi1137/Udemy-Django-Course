@@ -1,0 +1,35 @@
+<!-- template inheritance -->
+
+{% extends "base.html" %}
+<!-- we set template in setting's DIR so we can use here direct file here(base.html) -->
+
+<!-- this plugin helps in loading the static files -->
+{% load static %} 
+
+{% block css_files %}
+<!-- in order to use css file we use way as below; here static is similar to url; we can use static only after loading static plugin-->
+<link rel="stylesheet" href="{% static 'chalapp/index2.css' %}">
+{%endblock%}
+
+<!-- this content inject in page_title block section of base.html -->
+{% block page_title %} 
+Mero Challenges
+{% endblock %}
+
+
+<!-- this content inject in content block section of base.html -->
+{% block content %}
+
+<!-- this add navigation form include file which can be use to inject to multiple files -->
+    {% include "chalapp/includeOrsharesOrpartials/header.html" with active_page="indexy" %}
+
+        <ul>  
+            {% for month in mons %}
+                <li><a href= "{% url "chal_mont" month %}" > {{ month|title }}</a></li>
+            {% endfor %}
+        </ul>
+
+{%endblock%}
+
+
+<!-- we can have many base template and inherite from it -->

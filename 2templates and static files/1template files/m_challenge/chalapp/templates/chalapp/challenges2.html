@@ -1,0 +1,23 @@
+<!-- template inheritance -->
+
+{% extends "base.html" %}
+
+{% block page_title %}
+    {{month_name}} challenge is
+{%endblock%}
+    
+{% block content %}  
+
+<!-- for importing template snippets -->
+{% include "chalapp/includeOrsharesOrpartials/header.html" with active_page="challeeee" %}
+<!-- active_page="challeee" should be written with no white space -->
+<!-- 'with" enable us to pass-in specific value/context for the included template  -->
+
+    {% if text is not None %}
+        <h2>{{text|title}}</h2>
+    {%else%}
+    <p>There is challenge for this month yet</p>
+    {%endif%}
+    
+{%endblock%}
+    

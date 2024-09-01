@@ -1,0 +1,16 @@
+<!-- template snippets which is re-used by various templates eg. navigation bar -->
+
+<header>
+    <nav>
+        <a href="{% url "home" %}">Navigation Bar  to home</a>
+    </nav>
+</header>
+<!-- "home" is link from app's urls.py -->
+
+
+{{month_name}}
+<!-- the included-snippet file have access to that variable here "month_name"; where it is included, have access; and works only in that file where it was included; eg it worked for challenges2.html as "challeeee" and did not work for index2.html even it was in header file snippet -->
+<!-- for index2.html indexy was passed see index2.html -->
+
+<!-- with wala context passed from challenges2.html when include is called -->
+{{active_page}}

@@ -1,0 +1,33 @@
+<!-- second page html for task of specific month -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- hard-coded -->
+    <!-- <title>monthly challenges</title> -->
+
+    <!-- dynamic -->
+    <title>{{month_name}}</title>
+</head>
+<body>
+    <!--hard-coded -->
+    <!-- <h2>Do workout for 20 minutes</h2> -->
+    <h1>{{month_name}} challenge is <h1>
+
+    
+    {% if text is not None %}
+    <!-- dynamic   -->
+        <h2>{{text|title}}</h2> 
+    <!-- we use pipe "|" to use DTL technique to so some logic here "|title" to make all first letter capitalizes -->
+    {%else%}
+    <p>There is challenge for this month yet</p>
+    {%endif%}
+    
+</body>
+</html>
+
+<!-- we can use interpolation(injection feature) in any where in html files -->
+
+{% comment %} install django extension by Baptiste Darthenay so that interpolation becomes eaiser with
+ coloured text here text|title; unless it was just treated as plan text; but this extension disable features of getting html structure{% endcomment %}

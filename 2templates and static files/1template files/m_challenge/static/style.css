@@ -1,0 +1,20 @@
+/* globle css, project wide css, root static folder, the file that could be used easy from anywhere in the project / any template inside a project eg multiple app and globle template*/
+
+/* importing font */
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+AR:wght@100..400&display=swap');
+
+html{
+
+  font-family: "Playwrite AR", cursive;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+
+}
+
+  /* remove default margin, most of there brower have margin by default so */
+body{
+    margin : 0;
+    background-color: rgb(46, 46, 46);
+}
+

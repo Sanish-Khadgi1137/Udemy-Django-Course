@@ -1,0 +1,26 @@
+
+<!-- for first html page showing list of months -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Challenges</title>
+</head>
+<body>
+    <ul>
+        <!-- //tags;   "mons" was injected from view.py-->
+        {% for month in mons %}
+        <!-- hrer= /challenges/ {{month}} we do not have /challenges/ so did not write it -->
+ <!-- <li><a href="{{ month }}">{{ month|title }}</a></li>  -->
+
+ <!-- dynamic way; url is similar to  reverse url "name=chal_mont" is (dynamic)url link to view.chal and argument "<month2> = month" pass to view.chal to appear in link/url while display; see app's urls and "month" is product of loop -->
+   <!--month(product of loop) is argument passed for <month2> in url.py to display link -->
+    <li><a href= "{% url "chal_mont" month %}" > {{ month|title }}</a></li>
+        {% endfor %}
+        <!-- //indentation is doesnot matter here, outside of block we cant use product of for loop here"mons" -->
+    </ul>
+</body>
+</html>
