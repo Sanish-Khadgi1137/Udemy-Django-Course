@@ -1,0 +1,25 @@
+{% extends "book_outlet\base.html" %}
+
+{% block title %}
+All books
+{% endblock %}
+
+{% block content %}
+<ul>
+    <!-- <li>{{book1}}</li> doing this direct give raw single line data(Queryset) as in terminal> so-->
+     {% for book in book1 %}
+                                      <!--id from /book_outlet/url.py which acts like "self" pointing particular object/data-->
+     <!-- <li> <a href= "{% url 'book-detail' book.id %}" > {{book.title}} </a> (Rating: {{book.rating}}) </li> -->
+     
+     <!--way 2; we can also use built-in over written method here "get_absolute_url"-->
+     <li> <a href= "{{ book.get_absolute_url }}" > {{book.title}} </a> (Rating: {{book.rating}}) </li>
+
+     {% endfor %}
+
+</ul>
+<hr>
+<p>Total number of books : {{total_number_of_books}} </p>
+<!-- <p>Average rating : {{average_rating}} </p>--> <!--this way we output dictionary so -->
+<p>Average rating : {{average_rating.rating__avg}} </p>
+
+{% endblock %}

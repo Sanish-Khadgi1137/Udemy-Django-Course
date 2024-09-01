@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% load static %} 
+
+<!-- dynamically -->
+{% block title %}
+  {{ post3.title }}
+{% endblock %}
+
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'blog/post-detail.css' %}" />
+{% endblock %}
+
+{% block content %}
+    <section id="summary">
+      <!-- <h2>Post Title</h2> -->
+      <h2>{{ post3.title }}</h2>
+      <article>
+        <img src="{% static 'blog/images/'|add:post3.image" %}" alt="{{ post3.title }}" />
+        <!-- <address>By Sanis</address> -->
+         <address>By   {{ post3.author }}        </address>
+        <!-- <div>Last update on <time>July 10th</time></div> -->
+        <div>Last update on <time>{{ post3.date|date:"d M Y"}}</time></div>
+
+      </article>
+
+      <main>
+        <!-- <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo at fuga quia
+          iusto similique doloribus esse dolorem quos harum perferendis ex
+          architecto, ipsum ut omnis ab rerum quam ducimus nam.
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo at fuga quia
+            iusto similique doloribus esse dolorem quos harum perferendis ex
+            architecto, ipsum ut omnis ab rerum quam ducimus nam.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo at fuga quia
+            iusto similique doloribus esse dolorem quos harum perferendis ex
+            architecto, ipsum ut omnis ab rerum quam ducimus nam.
+          </p> -->
+          <p>{{ post3.content|linebreaks }}</p><!--filter "linebreaks" preserve the original linebreaker of content-->
+      </main>
+    </section>
+
+{% endblock %}

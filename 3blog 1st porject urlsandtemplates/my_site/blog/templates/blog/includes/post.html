@@ -1,0 +1,37 @@
+{% load static %}
+
+
+<li>
+    <article class="post">
+                               <!-- slug= 'the-mountain' or -->
+      <!-- <a href="{% url 'post-detail-page' 'the-mountains' %}"> -->
+
+        <!-- slug lead to differnt urls -->
+      <a href="{% url 'post-detail-page' post.slug %}">
+
+        
+        <!-- <img src="{% static 'blog/images/mountains.jpg' %}" alt="Mountain Hiking" /> -->
+                
+        <!-- dymanically add fileter "|add:" adds the value to the value in front of filter -->
+        <img src="{% static 'blog/images/'|add:post.image %}" alt={{post.title}} />
+
+
+        <!-- double underscore is CSS class naming technique BEM Block Element Modifier here post__content -->
+        <div class="post__content">
+          <!-- <h3>Mountain Hiking</h3> -->
+
+          <!-- dymanic way -->
+          <h3>{{ post.title }}</h3>
+          <!-- "title" is one of the key from dictionary in views.py -->
+
+          <!-- <p>
+            There's nothing like view you get when hiking in the mountain! And
+            I was not even prepared for what happened whilst I was enjoing the
+            view!
+          </p> -->
+
+          <p>{{post.excerpt}}</p>
+        </div>
+      </a>
+    </article>
+  </li>
