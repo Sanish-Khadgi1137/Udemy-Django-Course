@@ -1,0 +1,29 @@
+we got error while installing django "Globally"
+saying "  WARNING: Failed to write executable - trying to use .deleteme logic
+ERROR: Could not install packages due to an OSError: [WinError 2] The system cannot find the file specified: 'C:\\Python311\\Scripts\\django-admin.exe' -> 'C:\\Python311\\Scripts\\django-admin.exe.deleteme'
+"
+
+so we installed django in virtual environment
+
+so we have to activate that venv and create program etc
+
+so we have to activate that venv to run the program to(staying in that folder which have created "project")
+here we 
+1. activated fordjangotutorial_venv
+2. stay in folder "mypage" which has sub-folder "mypage" as well "manage.py"
+
+
+in django App ~= Module
+
+1. created "mypage" django project (with "mypage" subfolder and manage.py in sider it)
+2. from "mypage" folder we created app "challenges"
+
+.
+
+cannot run old project with new venv_ django installed
+
+we need to sign in to pc/brower to clone private repository
+
+virtual environment with 3.11 version of python cannot run on pc with python version 3.12
+
+we are able to run this code without activating virtual environment in this pc hp as it has django installed globally
