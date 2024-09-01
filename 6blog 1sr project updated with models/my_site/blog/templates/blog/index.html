@@ -1,0 +1,47 @@
+{% extends "base.html" %} 
+
+{% load static %}
+
+{% block title %}
+  My blog
+{% endblock %} 
+
+{% block css_files %}
+  <link rel="stylesheet" href="{% static 'blog/post.css' %}">
+  <link rel="stylesheet" href="{% static 'blog/index.css' %}">
+{% endblock %}
+
+{% block content %}
+  <section id="welcome">
+    <header>
+      <img src="{% static 'blog/images/max.png' %}" alt="Sanis - The Author Of This Blog" />
+      <h2>SHAHISANISH'S BLOG</h2>
+    </header>
+    <p>Hi I am Sanis and I love to blog about tech and the world</p>
+  </section>
+
+  <section id="latest-posts">
+    <h2>My Latest Thought</h2> 
+    <ul>
+   <!--this "post" is also availabe in include/snippet post.html-->
+      {% for post in posts1 %}<!--repeat for all posts of posts1(i.e. latest 3 posts); last three posts, "posts1" was passed from views.py-->
+        {% include "blog/includes/post.html" %}  <!--for dynamic modify in post.html -->
+      {% endfor %}
+   
+   
+   
+    </ul>
+  </section>
+
+  <section id="about">
+    <h2>What I Do</h2>
+    <p>
+      I love programming, I love to help others and enjoy exploring new technology
+      in general
+    </p>
+    <p>
+      My goal is to keep on growing as a developer - and if I could help you to do the
+      same, I'd be very happy!
+    </p>
+  </section>
+{% endblock %}

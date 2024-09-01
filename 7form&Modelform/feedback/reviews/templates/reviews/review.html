@@ -1,0 +1,70 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Reviews</title>
+</head>
+<link rel="stylesheet" href="{% static 'reviews/styles.css' %}">
+<body>
+    <form action="/" method="POST"><!--By default form is GET request, "action=" for where to send the request; action="user-profile" = in link we get http://127.0.0.1:8000/user_profile to user_profile file/url; here action="/" = just local-host here http://127.0.0.1:8000/ for local-host we do not neet to mention "action="-->
+        <!--POST request wont work with-out security mechanism CSRF_token which disable impersonating, only original django server create dynamic csrf token and that get accepted  data back from browser with that token -->
+        {% csrf_token %}
+
+<!--333         
+        {% if has_error %}
+        <p>This form is invalid - Please enter a valid username!</p>
+        {% endif %} 333-->
+
+        <!--arrtibute 'for="username1"' and 'id'= "username1" are used to connect "label" with its "input"-->
+<!--333 
+        <label for="username1">Your Name</label> 333-->
+<!--333 
+        <input id="username1" name="username5" type="text"> 333--> <!--attribute 'name="username5"' is a special attribute that allows us to identify submitted values once the form was submitted; is can be same as "for-id" i.e name= username1, we can see (key-value pair) in ulr/link with inputed value eg http://127.0.0.1:8000/?username5=Ram when send button is click with input walue "Ram" in GET method-->
+         
+
+
+        <!--instead of above 2line label and input using just form technic/form.py i.e {{form2}}-->
+        <!-- {{form2}} -->
+
+        <!-- hard-coded/   overwriting html struture of built-in form -->
+<!--for dynamic styling; error get display if there is error unless do not display; see in developer mode -element-->
+        <!-- <div class="form-control {% if form2.user_name.errors %}errors{% endif %}">
+        {{ form2.user_name.label_tag }}
+        {{ form2.user_name }}
+        {{ form2.user_name.errors }}
+        </div> -->
+
+    <!-- we have to added all the field manually; automatic {{form2}} do not required to add all the field manually -->
+        <!-- <div class="form-control {% if form2.review_text.errors %}errors{% endif %}">
+            {{ form2.review_text.label_tag }}
+            {{ form2.review_text }}
+            {{ form2.review_text.errors }}
+        </div> -->
+
+        <!-- <div class="form-control {% if form2.rating.errors %}errors{% endif %}">
+            {{ form2.rating.label_tag }}
+            {{ form2.rating }}
+            {{ form2.rating.errors }}
+        </div> -->
+
+        <!-- dymanically without code repetition -->
+         {% for field in form2  %}
+         <div class="form-control {% if field.errors %}errors{% endif %}">
+            {{ field.label_tag }}
+            {{ field }}
+            {{ field.errors }}
+        </div>
+        {% endfor %}
+
+        
+        
+        <button type="submit">send</button> <!--by default buttom is submit no need to mention type; submiting make by default browser creats new http request which is sent to the server that server this form, it will be GET request for server-->
+        <!--we can see request method in browser with shift+cntr+i, to Network tab and then header-->
+        <!--Post request is submiting data to server -->
+    </form>
+</body>
+</html>
+<!--refreshing its GET request-->
