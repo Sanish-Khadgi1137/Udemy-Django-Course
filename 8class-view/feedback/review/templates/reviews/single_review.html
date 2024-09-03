@@ -1,0 +1,19 @@
+{% extends "reviews/base.html" %} 
+
+{% block title %}
+    Revies Details
+{% endblock %}
+
+<!-- {% block content
+    <h1>{{reviews.user_name}}</h1>
+    <p>Rating: {{reviews.rating}} </p>
+    <p> {{reviews.review_text}} </p>
+endblock %} -->
+
+<!-- for DetailView; for context_object_name, we can use all lower case of models class name here "Review" to "review" or "object"-->
+{% block content %}
+    <h1>{{review.user_name}}</h1>
+    <p>Rating: {{object.rating}} </p>
+    <p> {{object.review_text}} </p>
+{% endblock %}
+ 

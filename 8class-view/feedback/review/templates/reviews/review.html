@@ -1,0 +1,28 @@
+{% extends 'reviews/base.html' %}
+
+{% block title %}
+    Your Reviews
+{% endblock %}
+
+# in loop ".ld in form1 %" if form1 is passed from view.py but automatic passed is just "form"
+
+{% block content %}
+    <form action="/" method="POST">
+        
+        {% csrf_token %}
+
+         {% for field in form  %} 
+         <div class="form-control {% if field.errors %}errors{% endif %}">
+            {{ field.label_tag }}
+            {{ field }}
+            {{ field.errors }}
+        </div>
+        {% endfor %}
+
+        <button type="submit">send</button>
+
+    </form>
+{% endblock%}
+
+    
+
