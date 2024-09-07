@@ -1,0 +1,27 @@
+{% extends "reviews/base.html" %} 
+
+{% block title %}
+    Revies Details
+{% endblock %}
+
+{% block content %}
+    <h1>{{review.user_name}}</h1> ########"review" same @364
+    <p>Rating: {{object.rating}} </p>
+    <p> {{object.review_text}} </p>
+
+    {% if is_favorite %}
+    <!-- after geting data from session and showing here instead of showing form -->
+    <p>This is my favroite!</p>
+    {% else %}
+    <form action="/reviews/favorite" method="POST"> <!-- without form we cant sent the form automatically -->
+        {% csrf_token %}
+        <button>Favorite</button> <!-- Whenever "Favorite" button is pressed, this review should be my favorite(every visitor must have his/her own favorite), and if we have existing favorite it should replace it; we do not add this on model.py -->
+        <input type="hidden" name="review_id" value="{{ review.id}}"> <!-- to see which review is to make favorite; "review".}} is same parameter as above  see @364 above -->
+        <!-- # type="hidden" means user can not edit but still be submitted as the request body -->
+    </form>
+    {% endif %}
+{% endblock %}
+
+<!-- we can add favorite from a review if we set another review to favorite previous will get out of the favorite and we see favorite button again there -->
+
+ 

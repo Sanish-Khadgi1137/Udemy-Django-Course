@@ -1,0 +1,14 @@
+{% extends "reviews/base.html" %}
+
+{% block title %}
+    All reviews
+{% endblock %}
+
+# context_object_name "reviews" in loop is passed here from views.py/ but while using "ListView" context_object_name is by default "object_list"
+{% block content %} 
+    <ul>
+        {% for review in reviews %} 
+            <li>{{review.user_name}} (Rating:{{review.rating}}) </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
