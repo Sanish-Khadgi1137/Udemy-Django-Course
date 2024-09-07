@@ -1,0 +1,22 @@
+<!-- see https://docs.djangoproject.com/en/5.1/ref/files/upload -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create a Profile</title>
+  <link rel="stylesheet" href="{% static "profiles/styles.css" %}">
+</head>
+<body>
+   <form action="/profiles/", method="POST" enctype="multipart/form-data"> <!--"enctype" tell django this form contents a file when submitted and that will change how the request is send and it needed to ensure to properly configured request is sent to the server  -->
+    {% csrf_token %}
+    <!-- <input type="file" name="image" /> -->
+
+    <!-- using forms.py -->
+     {{form}}
+    <button>Upload!</button>
+  </form>
+</body>
+</html>

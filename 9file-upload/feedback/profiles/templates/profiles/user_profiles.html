@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+</head>
+<body>
+    <ul>
+        {% for profile in profiles %}
+            <li>        
+                <img src="{{ profile.image.url }}" >     <!-- ".image." is instace of the model form models.py, if we put path(file system) instead of url then brower cant reach it (for secutiry reason) -->
+
+            </li>
+        {% endfor %}
+
+    </ul>
+
+</body>
+</html>
+
+<!-- it just hold the place for images but it fails to load the resource because by default all the files are lock(not accessible out side of the server) and does not expose to the browser for security reason; exception static files are expose however-->
+ <!-- in order to show those image  we use settings.py and urls.py of the project folder -->
