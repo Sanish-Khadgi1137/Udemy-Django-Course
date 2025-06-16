@@ -65,14 +65,14 @@ monthly_challenges_dic={
 def monthly_chall_dic(request, month1):
     try:
         challenges_text = monthly_challenges_dic[month1]#used key to get text
+        #return HttpResponse(challenges_text)
         response_data = f"<h1>{challenges_text}<h1>"#for html page
         return HttpResponse(response_data)
     except:
         return HttpResponseNotFound("<h1>This month is not supported!<h1>")# <h1> added to make it html page
-    #return HttpResponse(challenges_text)
+   
 
 #any response with 300 is redirect
-
 #from this we can type interger instead of name
 #if we type interger browser redirect(302) response to  challenges/month
 def monthly_challenges_by_num(request, month1):
