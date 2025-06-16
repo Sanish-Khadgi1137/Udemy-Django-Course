@@ -18,6 +18,7 @@ urlpatterns = [
     #path("<str:month1>", views.monthly_challenges1) #str: for string type in url eg. "challenges/january"
     #path("<month1>", views.monthly_challenges1),#"<month1>" is a place holder for "views"(here month's htmls)
 
+    #path for int type must be before str type because code executes fromt top to button, so if not request direclty goes to str type and gives error of str type ie. here "Four O Four e\Error"
     path("<int:month1>", views.monthly_challenges_by_num), #int: for search with integer type in url eg. "challenges/1"
     #path("<int: month1>", #is invalid because it contain a white space between "int: month1" there should not be any white spaces in that place
 
