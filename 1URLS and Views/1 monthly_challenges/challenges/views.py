@@ -77,13 +77,13 @@ def monthly_chall_dic(request, month1):
 #if we type interger browser redirect(302) response to  challenges/month
 def monthly_challenges_by_num(request, month1):
     months= list(monthly_challenges_dic.keys()) #.keys() give all the "keys" in a list in order manner eg. January is first and February is second
-                  #list[] make it real list before .key() give object in []; so we can access item with index
+                  #list[] make it real list before .key() give object in []; so we can access item using index
     
     if month1 > len(months):
         return HttpResponseNotFound("Invalid month")#to counter index error
 
-    #this line is responsible to give month from interger to string, by pointing month from list
-    redirect_month = months[month1-1]#"month1" = index(number) and "months" = list[]
+    #this line is responsible to give month from interger to string, by pointing month from list "months"
+    redirect_month = months[month1-1]#"month1" is index(number) and "months" is list[] of months
                       #month1 - 1 since list start from 0
 
                                 #/challenges/ is hard-coded
