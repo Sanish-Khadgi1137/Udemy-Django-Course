@@ -19,6 +19,7 @@ urlpatterns = [
     #path("<month1>", views.monthly_challenges1),#"<month1>" is a place holder for "views"(here month's htmls)
 
     path("<int:month1>", views.monthly_challenges_by_num), #int: for search with integer type in url eg. "challenges/1"
+    #path("<int: month1>", #is invalid because it contain a white space between "int: month1" there should not be any white spaces in that place
 
     #path("<month1>", views.monthly_chall_dic)
 
