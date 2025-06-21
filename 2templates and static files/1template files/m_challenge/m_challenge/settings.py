@@ -126,7 +126,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 #for spefic css files; this is like registering app for template file inside app
-STATIC_URL = 'static/'  #3333333333needed to utilize static files
+STATIC_URL = 'static/'  #3333333333needed to utilize static files, the folder name inside app should be "static"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
