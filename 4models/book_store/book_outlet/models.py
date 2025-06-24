@@ -6,7 +6,7 @@ from django.urls import reverse
 
 from django.utils.text import slugify
 
-#we use django feature called "models" for database which works in highlevel langugae(python) and it translate django(classes and object) to sql
+#we use django feature called "models" for database which works in highlevel langugae(python) Django ORM (object relational mapper) and it translate django(classes and object) to sql
 
 #see https://docs.djangoproject.com/en/5.0/ref/databases/
 
@@ -24,8 +24,8 @@ class Book(models.Model):
     #in order to make django aware of model/database we need to register app in setting here"book_outlet"
     
     #and we need to tell "django" should reach out to database here "db.sqlite3" with the help of  concept called "migration" which do all the creat/update task related to  database 
-    #using python manage.py makemigraions in terminal; staying in project folder here "book_store"; which create migration/create 0001_initial.py file inside migration folder of app here book_outlet
-    #to write/update database we run python manage.py migrate; this excute all the migration of all the apps
+    #using "python manage.py makemigraions" in terminal; staying in project folder here "book_store"; which create migration/create 0001_initial.py file inside migration folder of app here book_outlet
+    #to write/update database we run "python manage.py migrate"; this excute all the migration of all the apps
 
     #use "python manage.py shell" to use db in terminal shell mode
 
@@ -42,13 +42,14 @@ class Book(models.Model):
     slug=models.SlugField(default="",null=False, db_index=True)
     #by default="" and no slug for a dataset; result in error "NoReverseMatch at /" so all the data must have slug i.e. save again for old data
 #if editable=False we can't edit this field and do not need to add it when creating data set, or we can use blank=True enable us to keep that field blank yet editable
+   
     #over write built in save() method to auto polulate slug with "title" when we save() the data 
-    
-    #super() ensures django's built-in save() method still get called in function/method below
+    #super() ensures django's built-in save() method still get called in function/method below. (inheriting + own code )
+    #*args and **kwargs for data passed to save function; we do not have idea about how many and which data will be passed so we use *args and **kwargs
     def save(self, *args, **kwargs): #self is used to point on the current object and help in make changes in current object only without affecting other objects of same class
         self.slug= slugify(self.title)
         super().save(*args, **kwargs)
-    #despite of this over ride methode we need to add dummy data to slug in new data in django admin but after save it gets auto poputated as mention in above method; solution is making slug blank=True so that we can leave it blank but when save() gets auto populated
+    #despite of this over ride methode; we need to add dummy data to slug in new data in django admin but after save it gets auto poputated as mention in above method; solution is making slug blank=True so that we can leave it blank but when save() gets auto populated
 
 
     ############33333333333how instances of the class should output in terminal
