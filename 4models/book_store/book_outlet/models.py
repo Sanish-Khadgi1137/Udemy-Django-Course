@@ -50,7 +50,7 @@ class Book(models.Model):
         self.slug= slugify(self.title)
         super().save(*args, **kwargs)
     #despite of this over ride methode; we need to add dummy data to slug in new data in django admin but after save it gets auto poputated as mention in above method; solution is making slug blank=True so that we can leave it blank but when save() gets auto populated
-
+    ######python manage.py createsuperuser
 
     ############33333333333how instances of the class should output in terminal
     def __str__(self):
