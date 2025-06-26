@@ -16,7 +16,7 @@ class Address(models.Model):
     def __str__(self):
         return f"{self.street}, {self.postal_code}, {self.city}"
     
-    #in admin panel spelling of "Addresss" is auto plurized so we got wrong spelling;
+    #in admin panel(superuser) spelling of "Addresss" is auto plurized so we got wrong spelling;
     #nested class to add meta confuguration to the model; other propertise are treated as field eg. street, city in above
     class Meta:
         verbose_name_plural = 'Addresses'#for how Address model should display
