@@ -13,6 +13,7 @@ All books
      
      <!--way 2; we can also use built-in over written method here "get_absolute_url"-->
      <li> <a href= "{{ book.get_absolute_url }}" > {{book.title}} </a> (Rating: {{book.rating}}) </li>
+<!--                #rendering the value return by {{get_absolute_url}} -->
 
      {% endfor %}
 
