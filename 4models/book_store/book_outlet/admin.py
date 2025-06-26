@@ -10,6 +10,7 @@ class BookAdmin(admin.ModelAdmin):
 
 #because of this we do not need over ride method of save() in models.py
     prepopulated_fields = {"slug":("title",)}#for this we need no readonly_fields = ("slug") and there must not be editable=False
+    #in complete data eg data set without slug may result in error "NoReverseMatch at" because we used that slug to link book_detail
 
     list_filter = ("author", 'rating',)#make filterable by author and rating like in youtube filter by relavance, upload etc
     list_display = ("rating", "title",) #to make colum display with title and rating; order matters
