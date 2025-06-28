@@ -46,5 +46,9 @@ python manage.py migrate
 pip freeze > requirements.txt
 pip install -r requirements.txt
 
+.gitignore
+https://www.youtube.com/watch?v=1Qk8jrBrp9o&t=100s
+
+
 
 
