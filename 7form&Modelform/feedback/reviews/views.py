@@ -31,7 +31,7 @@ from .models import Review
 def review(request):
     
     #we can put form=form instead of form1 and form2
-    if request.method == 'POST':
+    if request.method == 'POST': #for logic, we can see this line kinda of save because of else: form1 block at last
 
         # #to update existing data
         # existing_data = review.objects.get(pk=1)
