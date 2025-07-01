@@ -29,7 +29,8 @@ from .models import Review
 
 #using form method
 def review(request):
-    
+
+           #if the request is post enter this if block
     #we can put form=form instead of form1 and form2
     if request.method == 'POST': #for logic, we can see this line kinda of save because of else: form1 block at last
 
@@ -59,7 +60,8 @@ def review(request):
     #using forms forms.py
     else: #just using else we can get error message, but other field which were valid get save and show them in new form/ if it not go to validation will not print error message
         form1 = ReviewForm()
-
+               
+           #if the request is not post it render in just below
     return render(request, "reviews/review.html", {
         "form2": form1
     })
