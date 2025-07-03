@@ -8,8 +8,9 @@ from .models import Review
 
 
 # def review(request):
-#     if request.method == 'POST':
-#         entered_username = request.POST["username5"] #extracting data manually
+#    #if the request is post enter this if block
+#     if request.method == 'POST': #here '.method' give access to the method passed 
+#         entered_username = request.POST["username5"] #extracting data manually; here '.POST' give access to the data passed
 
 #         #manual validation and there are lots of problem in manual validation like different error msges for each error; solution is using built in django form support/feature method form.py
 #         if entered_username == "": #and len(entered_username) >= 10:
@@ -21,7 +22,7 @@ from .models import Review
 #         print(entered_username)
 #         return HttpResponseRedirect("thank-you")
 
-
+       #only for else; the request is not post it render in just below
 #     return render(request, "reviews/review.html", {
 #                 "has_error": False
 #             })#this is for GET method/initial page/page to input
@@ -30,7 +31,7 @@ from .models import Review
 #using form method
 def review(request):
 
-           #if the request is post enter this if block
+          
     #we can put form=form instead of form1 and form2
     if request.method == 'POST': #for logic, we can see this line kinda of save because of else: form1 block at last
 
@@ -61,7 +62,7 @@ def review(request):
     else: #just using else we can get error message, but other field which were valid get save and show them in new form/ if it not go to validation will not print error message
         form1 = ReviewForm()
                
-           #if the request is not post it render in just below
+      
     return render(request, "reviews/review.html", {
         "form2": form1
     })
